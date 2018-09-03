@@ -1,6 +1,6 @@
 <?php
 
-class UsuarioDao {
+class UsuarioDao extends CI_Model {
     
 }
 

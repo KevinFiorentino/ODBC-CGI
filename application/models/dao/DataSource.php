@@ -7,7 +7,7 @@ class DataSource {
     
     /** Conectar a Origen de Datos ODBC */
     public function __construct() {     
-        $this->dsn = "sakila";
+        $this->dsn = "DBodbc";
         $this->cid = odbc_connect($this->dsn, "", "");
         
         if(!$this->cid) {
@@ -55,6 +55,7 @@ class DataSource {
    
 }
 
+/*
 $ds = new DataSource();
 
 echo $ds->ejecutarABM("SELECT * FROM actor;");
@@ -68,5 +69,6 @@ while($myrow = odbc_fetch_array($result)) {
     echo $myrow['first_name'] . "<br>";
     echo $i++;
 }
+*/
     
 ?>

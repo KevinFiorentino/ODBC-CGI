@@ -1,16 +1,18 @@
 <?php
 
-class Login {
+class Login extends CI_Model {
     
     private $idLogin;
     private $user;
     private $pass;
     private $usuario;
+    private $tipologin;
     
-    public function __construct($user = "", $pass = "", Usuario $usuario) {
+    public function __construct($user = "", $pass = "", Usuario $usuario = null, TipoLogin $tipologin = null) {
         $this->user = $user;
         $this->pass = $pass;
         $this->usuario = $usuario;
+        $this->tipologin = $tipologin;
     }
     
     public function getIdLogin(){
@@ -32,10 +34,13 @@ class Login {
         return $this->usuario;}
     public function setUsuario($usuario){
         $this->usuario = $usuario;}
+        
+    public function getTipologin(){
+        return $this->tipologin;}
+    public function setTipologin($tipologin){
+        $this->tipologin = $tipologin;}
 
-    
-    
-    
+  
 }
 
 ?>

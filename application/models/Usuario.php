@@ -1,6 +1,6 @@
 <?php
 
-class Usuario {
+class Usuario extends CI_Model {
     
     private $idUsuario;
     private $nombre;
@@ -8,15 +8,13 @@ class Usuario {
     private $direccion;
     private $telefono;
     private $email;
-    private $tipoUsuario;
     
-    public function __construct($nombre = "", $apellido = "", $direccion = "", $telefono = "", $email = "", TipoUsuario $tipoUsuario) {
+    public function __construct($nombre = "", $apellido = "", $direccion = "", $telefono = "", $email = "") {
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->direccion = $direccion;
         $this->telefono = $telefono;
         $this->email = $email;
-        $this->tipoUsuario = $tipoUsuario;
     }
     
     public function getIdUsuario(){
@@ -48,12 +46,6 @@ class Usuario {
         return $this->email;}
     public function setEmail($email){
         $this->email = $email;}
-
-    public function getTipoUsuario(){
-        return $this->tipoUsuario;}
-    public function setTipoUsuario($tipoUsuario){
-        $this->tipoUsuario = $tipoUsuario;}
-
     
     
     
