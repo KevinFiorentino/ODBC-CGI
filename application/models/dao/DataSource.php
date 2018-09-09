@@ -54,25 +54,24 @@ class DataSource {
             return 0;
         }
     }
-
+    
     
     /**
      * Ejecutar un Pocedimiento SIN parámetros de Salida @out
      * 
      * @param string $call  -> Llamada al procedimiento
      * @param array $params -> Parámetros del Procedimiento
-     * @return number -> Retorna 1 si se ejecutó correctamente o 0 si hubo un error
+     * @return number -> Retorna la consulta si se ejecutó correctamente o 0 en caso de error.
      */
-    public function ejecutarProcedure($call = "", $params = array("socio") ) { 
-        $res = odbc_prepare($this->cid, $call);
+    public function ejecutarProcedure($call) {
         
-        if(!$res) echo "Error en la llamada al procedimiento";
-        
-        if(odbc_execute($res, $params)) {  
-            return 1; 
+        if($query = odbc_exec($this->cid, $call)) {
+            return $query;
         }
         else {
-            return 0; }     
+            return 0;
+        }
+       
     }
     
     
@@ -82,33 +81,32 @@ class DataSource {
      * @param string $sql -> SQL para capturar el parametro de Salida.
      * @param string $call -> Llamada al Procedimiento
      * @param array $params -> Parametros del Procedimiento
-     * @return resource|number -> Retorna el parámetro de salida en caso de éxito o un 0 si salió mal.
+     * @return resource|number -> Retorna el parámetro de salida en caso de éxito o un 0 si salió mal o no encontró nada en el OUT.
      */
-    public function ejecturaProcOut($sql = "", $call = "", array $params) {
-        $res = odbc_prepare($this->cid, $call);
+    public function ejecturaProcOut($call = "", array $params) {
+        $callPrepare = odbc_prepare($this->cid, $call);
+        $out = null;
         
-        if(!$res) echo "Error en la llamada al procedimiento";
+        if(!$callPrepare) echo "Error en la preparacion del procedimiento";
         
-        if(odbc_execute($res, $params)) {
+        if(odbc_execute($callPrepare, $params)) {
             $sql = "SELECT @out;";
-            $out = odbc_exec($cid, $sql) or die (exit("Error ODBC"));
+            $resultOut = odbc_exec($this->cid, $sql) or die (exit("Error ODBC"));
+            
+            while($valorOut = odbc_fetch_array($resultOut)) {
+                $out = $valorOut['@out'];
+                if($out == null) {
+                    $out = 0;
+                }   
+            }      
             return $out;
         }
         else {
             return 0; 
         } 
     }
+
     
-/*
-      
-    $params = array("PEPE", "BIONDI");
-    $call = "CALL INSERTAR_ACTOR(?, ?, @out)";
-    
-    $sql = "SELECT @out;";
-    
-*/
-    
-   
 }
     
 ?>
