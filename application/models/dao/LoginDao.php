@@ -33,6 +33,15 @@ class LoginDao extends CI_Model {
         }  
     }
     
+    public function registrarUsuario($user,$pass,$nombre,$apellido,$direccion,$telefono,$email) {
+        $datasource = new DataSource();
+        
+        $registrar_usuario = "CALL registrar_Usuario('$user','$pass','$nombre','$apellido','$direccion',$telefono,'$email')";
+        
+        $query = $datasource->ejecutarProcedure($registrar_usuario);
+        return $query;
+    }
+    
 }
 
 ?>
