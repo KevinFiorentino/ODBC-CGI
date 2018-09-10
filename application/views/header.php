@@ -9,29 +9,25 @@
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/Distribuidos.css">
     
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/datatables.min.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/jquery.dataTables.min.css">
+    
 </head>  
 
 <!-- Barra de Navegacion -->
 <nav class="navbar navbar-expand-xl bg-dark navbar-dark">
 <ul class="navbar-nav">
     <li class="nav-item active">
-      <a class="nav-link" href="#">Active</a>
+      <a class="nav-link" href="#">Inicio</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+      <?php echo anchor("Reservas/ReservarCancha", "Reservar", array('class' => 'nav-link')); ?>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Mis Turnos</a>
     </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        Dropdown link
-      </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Link 1</a>
-        <a class="dropdown-item" href="#">Link 2</a>
-        <a class="dropdown-item" href="#">Link 3</a>
-      </div>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Perfil</a>
     </li>
   </ul>
 </nav>

@@ -20,26 +20,30 @@ class LogearUsuario extends CI_Controller {
     }
     
     public function Login() {
-        
         $this->load->model("dao/LoginDao");
         
         $user = $this->input->post('user');
         $pass = $this->input->post('pass');
         
-        $login = $this->LoginDao->logearUsuario($user);
+        $log = $this->LoginDao->logearUsuario($user, $pass);
         
-        if($login->getPass() === $pass) {
-            $this->load->view("header");
-            $this->load->view("BienvenidoSocio");
-            $this->load->view("footer");
-        }
-        else {
+        if($log === 0) { //SI ES IDENTICO A CERO, NO SE ENCONTRÓ EL USUARIO
             $_SESSION['errorLogin'] = "Usuario o Contrase&ntilde;a Incorrecto";
             $this->load->view("index");
             $this->load->view("footer");
         }
+        else { //SI NO, LOGEA AL USUARIO Y LO ENVIA A BIENVENIDO
+            
+            redirect('/LogearUsuario/Logeado','refresh');
+        }
+        
     }
     
+    public function Logeado() {
+        $this->load->view("header");
+        $this->load->view("BienvenidoSocio");
+        $this->load->view("footer");
+    }
 
     
 }
