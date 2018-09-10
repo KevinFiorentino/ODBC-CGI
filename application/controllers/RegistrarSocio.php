@@ -37,23 +37,6 @@ class RegistrarSocio extends CI_Controller {
         }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public function TraerUsuarios() {
         
         $this->load->model("dao/LoginDao");
