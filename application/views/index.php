@@ -47,6 +47,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>';
         unset( $_SESSION['errorLogin'] ); } ?> <br>
 
+	<?php if(isset( $_SESSION['RegistroOk'] )) { 
+        echo '<div class="container bg-danger">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="alert-link-text">
+                            <h4>' . $_SESSION['RegistroOk'] . '</h4>
+                        </div>
+                    </div>
+                </div>
+              </div>';
+        unset( $_SESSION['RegistroOk'] ); } ?> <br>
+        
 	<div class="container">
 		<div class="panel-group">
 			<div class="panel panel-primary">

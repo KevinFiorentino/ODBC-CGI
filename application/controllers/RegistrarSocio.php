@@ -4,7 +4,9 @@ class RegistrarSocio extends CI_Controller {
     
     public function __construct() {
         parent::__construct();
-        $this->load->helper('form');
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $this->form_validation->set_message('required', 'error error error');
     }
     
     public function NuevoSocio() {
@@ -13,6 +15,22 @@ class RegistrarSocio extends CI_Controller {
     }
     
     public function Asociar() {
+        /* Load form helper */
+        $this->load->helper(array('form'));
+        
+        /* Load form validation library */
+        $this->form_validation->set_rules('nombre', 'Nombre', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');
+        $this->form_validation->set_rules('pass', 'Contrase&ntildea', 'required');
+        $this->form_validation->set_rules('user', 'Nombre Usuario', 'required|is_unique[users.user]');
+        $this->form_validation->set_rules('passrepeat', 'Repetir Contrase&ntildea', 'required|matches[pass]');
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->load->view("RegistrarSocio");
+            $this->load->view("footer");
+        }
+        else
+        {
         $this->load->model("dao/LoginDao");
         $nombre = $this->input->post('nombre');
         $apellido = $this->input->post('apellido');
@@ -25,7 +43,6 @@ class RegistrarSocio extends CI_Controller {
         $registrar = $this->LoginDao->registrarUsuario($user,$pass,$nombre,$apellido,$direccion,$telefono,$email);
          
         if ($registrar===0) {
-            $_SESSION['errorRegistro'] = "Error al registrarse. Intente nuevamente";
             $this->load->view("RegistrarSocio");
             $this->load->view("footer");
         }
@@ -33,6 +50,7 @@ class RegistrarSocio extends CI_Controller {
             $_SESSION['RegistroOk'] = "Se ha registrado correctamente";
             $this->load->view('index');
             $this->load->view("footer");
+        }
         }
         }
     
