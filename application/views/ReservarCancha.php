@@ -16,7 +16,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             		
             		<h2 class="h2">Polideportivo Los Amigos</h2>
 					
-    				<table class="table" id="reservarCanchas">
+    				<table class="table table-striped table-bordered nowrap cargando" id="reservarCanchas" 
+    					cellspacing="0" width="100%">
 						<thead>
 							<tr>
 								<th></th>
@@ -37,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     <br><br><br>
 	
-	<script type="text/javascript" src="<?php echo base_url()?>assets/js/scriptDataTables.js"></script>
+	
 	
 </body>
 

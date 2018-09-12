@@ -11,11 +11,12 @@ $(document).ready(function(){
 			                "data":           null,			           
 			                "defaultContent": "" 
 			            },
-	                    { "data": "cancha.tipoCancha.deporte","defaultContent": "S/D" },	
-	                    { "data": "cancha.tipoCancha","defaultContent": "S/D" },
-	                    { "data": "cancha.filial.localidad", "defaultContent": "S/D"}
+	                    {"data":"deporte","defaultContent":"S/D"},	
+	                    {"data":"tipoCancha","defaultContent":"S/D"},
+	                    {"data":"localidad","defaultContent":"S/D"}
 	                    ],
-	      "order": [[1, 'dsc']]});
+	      "order": [[1, 'dsc']]
+ 	});
 	
 	 table1.columns.adjust().draw();
 
@@ -49,4 +50,4 @@ $(document).ready(function(){
 
 
 function detalleReservarCanchas(d) {
-	return ""; }
+	return "asd"; }

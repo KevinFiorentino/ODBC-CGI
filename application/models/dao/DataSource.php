@@ -28,8 +28,7 @@ class DataSource {
      */
     public function ejecutarQuery($sql = "") {
         if($sql != "") {
-            $tablaDatos = odbc_exec($this->cid, $sql) or die (exit ("Error al ejecutar Query ODBC"));
-            
+            $tablaDatos = odbc_exec($this->cid, $sql) or die (exit ("Error al ejecutar Query ODBC"));          
             return $tablaDatos;
         }
         else{

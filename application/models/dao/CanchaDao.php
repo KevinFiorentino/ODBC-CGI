@@ -23,8 +23,14 @@ class CanchaDao extends CI_Model {
         
         $query = $datasource->ejecutarQuery($sql); 
         
+        $json='[';
         while($row = odbc_fetch_array($query)) { 
+            
+            $json .= '{"deporte":"'.$row["deporte"].'",';
+            $json .= '"localidad":"'.$row["localidad"].'",';
+            $json .= '"tipoCancha":"'.$row["tipoCancha"].'"},';
 
+            /*
             $cancha = new Cancha();
             $tipoCancha = new TipoCancha();
             $localidad = new Localidad();
@@ -41,10 +47,15 @@ class CanchaDao extends CI_Model {
             $cancha->setTipoCancha($tipoCancha);
             $cancha->setFilial($filial);
 
-            array_push($canchas, $cancha);  
+            array_push($canchas, $cancha);  */
+            
         }
 
-        return $canchas;
+        $length = strlen($json);
+        $sub = substr($json, 0, $length-2);
+        $sub .= "}]";
+
+        return $sub;
     }
     
 }

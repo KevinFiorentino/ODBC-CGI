@@ -15,22 +15,17 @@ class Reservas extends CI_Controller {
     }
     
     public function CargarDataTableCanchas() {
-    
-        $canchas = json_encode($this->CanchaDao->traerCanchas());
+        $canchas = $this->CanchaDao->traerCanchas();
         
         if ($canchas == false){
             $error = 'No se pudo conectar con el servidor';
-            throw new Exception($error);
-        }
+            throw new Exception($error); }
         
-        try{
-            
-            echo '{ "draw": 1, "recordsFiltered": 10, "data": '.$canchas.' }';
-            
+        try{  
+            echo '{ "draw": 1, "recordsFiltered": 10, "data": '.$canchas.'}';         
         }catch (Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
-        }
-        
+        }    
     }
     
 }

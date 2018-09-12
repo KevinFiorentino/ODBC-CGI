@@ -73,3 +73,14 @@ section .section-title {
     margin-bottom: 10px;
 	}
 }
+
+
+
+
+table.dataTable td.details-control {
+    background: url(../images/details_open.png) no-repeat center center;
+    cursor: pointer;
+}
+table.dataTable tr.details td.details-control {
+    background: url(../images/details_close.png) no-repeat center center;
+}
