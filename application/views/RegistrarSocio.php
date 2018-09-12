@@ -41,34 +41,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             		<div class="tab-content col-sm-12">
             		
             		<h2 class="h2">Polideportivo Los Amigos</h2> <br>
-	 
+                <?php echo validation_errors(); ?>
             	<?= form_open('RegistrarSocio/Asociar') ?>
             	
             	<h4 class="h4">Datos del Asociado: </h4> <br>
             	
             	  <div class="form-group">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" class="form-control" name="nombre" required>
+                    <input type="text" class="form-control" name="nombre" value="<?php echo set_value('nombre'); ?>" required size="45">
                   </div>
-                  
+
                   <div class="form-group">
                     <label for="apellido">Apellido:</label>
-                    <input type="text" class="form-control" name="apellido" required>
+                    <input type="text" class="form-control" name="apellido" required size="45">
                   </div>
-                  
+                   
                   <div class="form-group">
                     <label for="direc">Direcci&oacute;n:</label>
-                    <input type="text" class="form-control" name="direc" required>
+                    <input type="text" class="form-control" name="direc" required size="45">
                   </div>
                   
                   <div class="form-group">
                     <label for="tel">Telefono:</label>
-                    <input type="number" class="form-control" name="tel" required>
+                    <input type="number" class="form-control" name="tel" required size="11">
                   </div>
                   
                   <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" name="email" required>
+                    <input type="email" class="form-control" name="email" value="<?php echo set_value('email'); ?>" required size="45">
                   </div>
                   
                   <br>
@@ -79,18 +79,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             	
                   <div class="form-group">
                     <label for="user">Nombre Usuario:</label>
-                    <input type="text" class="form-control" name="user" ng-model="user" ng-change="validarUser()" required>
+                    <input type="text" class="form-control" name="user" value=""<?php echo set_value('user'); ?>" ng-model="user" ng-change="validarUser()" required size="45">
                     <span style="color: {{ colorUs }}">{{ validUser }}</span>
                   </div>
                   
                   <div class="form-group">
                     <label for="pass">Contrase&ntilde;a:</label>
-                    <input type="password" class="form-control" name="pass" ng-model="pass" ng-change="validarPass()" required>
+                    <input type="password" class="form-control" name="pass" ng-model="pass" value="<?php echo set_value('pass'); ?>" ng-change="validarPass()" required size="45">
                   </div>
                   
                   <div class="form-group">
                     <label for="passrepeat">Repetir Contrase&ntilde;a:</label>
-                    <input type="password" class="form-control" name="passrepeat" ng-model="passrepeat" ng-change="validarPass()" required>
+                    <input type="password" class="form-control" name="passrepeat" ng-model="passrepeat" value="<?php echo set_value('passrepeat'); ?>" ng-change="validarPass()" required>
                   	<span style="color: {{ colorPss }}">{{ validPass }}</span>
                   </div>
                   
