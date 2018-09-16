@@ -3,6 +3,7 @@ $(document).ready(function(){
  var table1 = $('#reservarCanchas').DataTable({
 	        "processing": true,
 	        "scrollX": true,
+	        //Llamamos método del Controlador Reservas y capturamos el JSON
 		    "sAjaxSource":"http://localhost:8081/Polideportivo/Reservas/CargarDataTableCanchas",
 		    
 	        "columns": [{
@@ -19,10 +20,11 @@ $(document).ready(function(){
  	});
 	
 	 table1.columns.adjust().draw();
-
+	 
 	    var detailRows1 = [];
 	 
 	    $('#reservarCanchas tbody').on( 'click', 'tr td.details-control', function () {
+
 	        var tr1 = $(this).closest('tr');
 	        var row1 = table1.row( tr1 );
 	        var idx1 = $.inArray( tr1.attr('id'), detailRows1 );
@@ -48,6 +50,12 @@ $(document).ready(function(){
 	    } );   
 } );
 
-
+//ENVIA AL UNA VARIABLE POR GET QUE ES CAPTURADA EN /scriptDateTimePicker.js, la variable idCancha es para dar de alta los Turnos
 function detalleReservarCanchas(d) {
-	return "asd"; }
+	var window = "'width=600,height=270'";
+	return '<div>' 
+
+	    +'<a href="http://localhost:8081/Polideportivo/Reservas/Turnos?filial='+d.idFilial+'&cancha='+d.idCancha+'" target="_blank" onclick="window.open(this.href,this.target,'+window+'); return false;">Reservar Esta Cancha</a>'
+
+	    +'</div>';
+}

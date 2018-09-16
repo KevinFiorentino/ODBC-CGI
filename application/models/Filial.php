@@ -43,7 +43,10 @@ class Filial extends CI_Model implements JsonSerializable {
     
     public function jsonSerialize() {
         return [
-            'localidad' => $this->localidad
+            'localidad' => $this->localidad,
+            'hsDesde' => $this->horarioDesde,
+            'hsHasta' => $this->horarioHasta,
+            'dMantenimiento' => $this->diaMantenimiento
         ];
     }
         

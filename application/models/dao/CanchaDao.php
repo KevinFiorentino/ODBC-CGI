@@ -10,52 +10,33 @@ class CanchaDao extends CI_Model {
         $this->load->model("Localidad");
     }
     
+    /** Método para imprimir en pantalla el JSON para cargar el DataTables. 
+     *  Es llamado desde /scriptDataTables.js
+     * */
     public function traerCanchas() {
         $datasource = new DataSource();
         $canchas = array();
         $cancha = null;
         
-        $sql = "SELECT tipoCancha, deporte, localidad FROM Cancha
-            JOIN TipoCancha ON Cancha.idTipoCancha = TipoCancha.idTipoCancha
-            JOIN Deporte ON TipoCancha.idDeporte = Deporte.idDeporte
-            JOIN Filial ON Cancha.idFilial = Filial.idFilial
-            JOIN Localidad ON Filial.idLocalidad = Localidad.idLocalidad;";
+        $sql = "CALL traerCanchas();";
         
         $query = $datasource->ejecutarQuery($sql); 
         
         $json='[';
-        while($row = odbc_fetch_array($query)) { 
-            
+        while($row = odbc_fetch_array($query)) {     
             $json .= '{"deporte":"'.$row["deporte"].'",';
             $json .= '"localidad":"'.$row["localidad"].'",';
-            $json .= '"tipoCancha":"'.$row["tipoCancha"].'"},';
-
-            /*
-            $cancha = new Cancha();
-            $tipoCancha = new TipoCancha();
-            $localidad = new Localidad();
-            $filial = new Filial();
-            $deporte = new Deporte();
-            
-            $deporte->setDeporte($row['deporte']);
-            $tipoCancha->setTipoCancha($row['tipoCancha']);
-            $tipoCancha->setDeporte($deporte);
-            
-            $localidad->setLocalidad($row['localidad']); 
-            $filial->setLocalidad($localidad);
-            
-            $cancha->setTipoCancha($tipoCancha);
-            $cancha->setFilial($filial);
-
-            array_push($canchas, $cancha);  */
-            
+            $json .= '"idFilial":"'.$row["idFilial"].'",';
+            $json .= '"idCancha":"'.$row["idCancha"].'",';
+            $json .= '"tipoCancha":"'.$row["tipoCancha"].'"},';          
         }
 
+        //QUITAR ÚLTIMA COMA DEL JSON
         $length = strlen($json);
-        $sub = substr($json, 0, $length-2);
-        $sub .= "}]";
+        $subJson = substr($json, 0, $length-2);
+        $subJson .= "}]";
 
-        return $sub;
+        return $subJson;
     }
     
 }

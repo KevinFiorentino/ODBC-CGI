@@ -29,6 +29,7 @@ class Cancha extends CI_Model implements JsonSerializable {
         
     public function jsonSerialize() {
         return [
+            'idCancha' => $this->idCancha,
             'tipoCancha' => $this->tipoCancha,
             'filial' => $this->filial
         ];

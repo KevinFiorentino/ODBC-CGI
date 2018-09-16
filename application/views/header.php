@@ -27,7 +27,7 @@
       <a class="nav-link" href="#">Mis Turnos</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Perfil</a>
+      <?php echo anchor("Logout/CerrarSesion", "Cerrar Sesi&oacute;n", array('class' => 'nav-link')); ?>
     </li>
   </ul>
 </nav>

@@ -1,6 +1,6 @@
 <?php
 
-class Turno extends CI_Model {
+class Turno extends CI_Model implements JsonSerializable {
     
     private $idTurno;
     private $fechaHora;
@@ -47,6 +47,14 @@ class Turno extends CI_Model {
     public function setCancha($cancha){
         $this->cancha = $cancha;}
 
- 
+        
+    public function jsonSerialize() {
+        return [
+            'fechaHora' => $this->fechaHora,
+            'filial' => $this->filial,
+            'usuario' => $this->usuario,
+            'cancha' => $this->cancha
+        ];
+    }
     
 }

@@ -19,6 +19,7 @@ class LogearUsuario extends CI_Controller {
         $this->load->view('footer');
     }
     
+    /** Método para Logear a un Usuario */
     public function Login() {
         $this->load->model("dao/LoginDao");
         
@@ -34,6 +35,10 @@ class LogearUsuario extends CI_Controller {
         }
         else { //SI NO, LOGEA AL USUARIO Y LO ENVIA A BIENVENIDO
             
+            //Guardamos ID del Usuario para utilizarla en el Alta de los Turnos
+            $_SESSION['idUsuario'] = $log->getUsuario()->getIdUsuario();
+            
+            //Redirección a otro método para evitar errores al refrescar la página
             redirect('/LogearUsuario/Logeado','refresh');
         }
         

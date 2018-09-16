@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="es">
 
+
 <body>
 
 	<br><br><br>	
@@ -37,9 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     
     <br><br><br>
-	
-	
-	
+ 
 </body>
 
 </html>
