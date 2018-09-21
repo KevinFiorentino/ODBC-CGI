@@ -6,6 +6,7 @@ class RegistrarSocio extends CI_Controller {
         parent::__construct();
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
+        $this->load->database();
         $this->form_validation->set_message('required', 'error error error');
     }
     
@@ -20,9 +21,9 @@ class RegistrarSocio extends CI_Controller {
         
         /* Load form validation library */
         $this->form_validation->set_rules('nombre', 'Nombre', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('pass', 'Contrase&ntildea', 'required');
-        $this->form_validation->set_rules('user', 'Nombre Usuario', 'required|is_unique[users.user]');
+        $this->form_validation->set_rules('user', 'Nombre Usuario', 'required|is_unique[login.user]');
         $this->form_validation->set_rules('passrepeat', 'Repetir Contrase&ntildea', 'required|matches[pass]');
         if ($this->form_validation->run() == FALSE)
         {

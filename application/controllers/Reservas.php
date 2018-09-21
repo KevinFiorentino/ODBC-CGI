@@ -8,12 +8,20 @@ class Reservas extends CI_Controller {
         parent::__construct();
         $this->load->helper('form');
         $this->load->model('dao/CanchaDao');
+        $this->load->model('dao/TurnoDao');
     }
     
     /** Ir a la vista para Reservar Cancha */
     public function ReservarCancha() {
         $this->load->view("header");
         $this->load->view("ReservarCancha");
+        $this->load->view("footer");
+    }
+    
+    /** Ir a la vista para Traer Turnos */
+    public function TraerTurnos() {
+        $this->load->view("header");
+        $this->load->view("VerTurnos");
         $this->load->view("footer");
     }
     
@@ -80,5 +88,46 @@ class Reservas extends CI_Controller {
             echo "<h4>Su reserva fue registrada con &Eacute;xito !</h4>";
         }
     }
+    
+    
+    public function CargarDataTableTurnos() {
+        
+        $idUsuario = $_SESSION['idUsuario'];
+        $turnos = $this->TurnoDao->traerMisTurnos($idUsuario);
+        
+        if ($turnos == false){
+            $error = 'No se pudo conectar con el servidor';
+            throw new Exception($error); }
+            
+            try{
+                echo '{ "draw": 1, "recordsFiltered": 10, "data": '.$turnos.'}';
+            }catch (Exception $e) {
+                echo 'Caught exception: ',  $e->getMessage(), "\n";
+            }
+    }
+    
+    public function CancelarTurno() {
+
+        $idTurno = $this->input->get('idTurno');
+        $fechaHora = $this->input->get('fechaHora');
+        
+        
+        $cancelarTurno = $this->TurnoDao->cancelarTurno($idTurno);
+        
+        if($cancelarTurno == 0) {
+          
+            $_SESSION['CancelarTurnoError'] = "Ocurrio un error al cancelar el turno. Recuerde que la cancelacion solo se puede realizar con mas de 2 horas de anticipacion";
+            $this->load->view("header");
+            $this->load->view("VerTurnos");
+            $this->load->view("footer");
+        }
+        else{
+            $_SESSION['CancelarTurnoOk'] = "Su turno se cancelo correctamente";
+            $this->load->view("VerTurnos");
+            $this->load->view("footer");
+        }
+            
+    }
+   
 }
 

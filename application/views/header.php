@@ -24,7 +24,7 @@
       <?php echo anchor("Reservas/ReservarCancha", "Reservar", array('class' => 'nav-link')); ?>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Mis Turnos</a>
+       <?php echo anchor("Reservas/TraerTurnos", "Mis Turnos", array('class' => 'nav-link')); ?>
     </li>
     <li class="nav-item">
       <?php echo anchor("Logout/CerrarSesion", "Cerrar Sesi&oacute;n", array('class' => 'nav-link')); ?>
