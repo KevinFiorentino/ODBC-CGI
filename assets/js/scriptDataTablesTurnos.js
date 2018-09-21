@@ -59,7 +59,6 @@ function detalleTraerTurnos(d) {
 	return '<div>' 
 	
     +'<a href="http://localhost:8081/Polideportivo/Reservas/CancelarTurno?idTurno='+d.idTurno+'&fechaHora='+d.fechaHora+'">Cancelar Turno</a>'
-    +'<a href="http://localhost:8081/Polideportivo/Reservas/CancelarTurno?idTurno='+d.idTurno+'&fechaHora='+d.fechaHora+'">Modificar Turno</a>'
-
+    + '&nbsp;&nbsp;&nbsp; <a href="http://localhost:8081/Polideportivo/Reservas/modificarTurnovista?idTurno='+d.idTurno+'&idCancha='+d.idCancha+'&filial='+d.idFilial+'" target="_blank" onclick="window.open(this.href,this.target,'+window+'); return false;">Modificar Turno</a>'
 	    +'</div>';
 }

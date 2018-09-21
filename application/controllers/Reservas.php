@@ -30,6 +30,10 @@ class Reservas extends CI_Controller {
         $this->load->view("PedirTurno");
     }
     
+    /** Abrir vista emergente para modificar un Turno para X Usuario */
+    public function modificarTurnovista() {
+        $this->load->view("modificarTurno");
+    }
     
     /** Método para cargar DataTables de Canchas */
     public function CargarDataTableCanchas() {
@@ -128,6 +132,25 @@ class Reservas extends CI_Controller {
         }
             
     }
+    
+    public function ModificarTurno() {
+        $this->load->model('dao/TurnoDao');
+        
+        $fecha = $this->input->post('datepicker');
+        $hora = $this->input->post('timepicker');
+        $idTurno = $this->input->post('idTurno');
+        $idCancha = $this->input->post('idCancha');
+        
+        $result = $this->TurnoDao->ValidarTurnoModif($fecha, $hora, $idTurno, $idCancha);
+        
+        if($result == 0) {
+            echo "<h4>Error en la reserva, el Turno podr&iacute;a ya estar ocupado</h4>";
+        }
+        else{
+            echo "<h4>Su reserva fue modificada con &Eacute;xito !</h4>";
+        }
+    }
+    
    
 }
 

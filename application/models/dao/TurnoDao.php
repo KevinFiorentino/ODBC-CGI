@@ -38,7 +38,8 @@ class TurnoDao extends CI_Model {
                 $json .= '"tipoCancha":"'.$row["tipoCancha"].'",';
                 $json .= '"deporte":"'.$row["deporte"].'",';
                 $json .= '"localidad":"'.$row["localidad"].'",';
-                $json .= '"idCancha":"'.$row["idCancha"].'"},'; 
+                $json .= '"idCancha":"'.$row["idCancha"].'",'; 
+                $json .= '"idFilial":"'.$row["idFilial"].'"},'; 
             }
             
             //QUITAR ÚLTIMA COMA DEL JSON
@@ -58,11 +59,17 @@ class TurnoDao extends CI_Model {
             return $query;
         }
         
-        /* public function cancelarTurno($idTurno) {
+        public function ValidarTurnoModif($fecha, $hora, $idTurno, $idCancha) {
             $datasource = new DataSource();
+            $valido = null;
             
-            $query = $datasource->ejecutarABM("UPDATE turno SET turno.vigente = 0 where turno.idTurno = $idTurno;");
+            $query = $datasource->ejecutarQuery("SELECT modificar_Turno($idTurno, $idCancha, '$fecha $hora') AS modificar;");
             
-            return $query;
-        } */
+            while($res = odbc_fetch_array($query)) {
+                $valido = $res['modificar'];
+            }
+            
+            return $valido;
+        }
+        
 }
