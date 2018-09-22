@@ -127,6 +127,7 @@ class Reservas extends CI_Controller {
         }
         else{
             $_SESSION['CancelarTurnoOk'] = "Su turno se cancelo correctamente";
+            $this->load->view("header");
             $this->load->view("VerTurnos");
             $this->load->view("footer");
         }

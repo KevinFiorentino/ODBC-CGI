@@ -6,7 +6,7 @@ CREATE PROCEDURE traerMisTurnos(
  )
 
 BEGIN
-	SELECT idTurno, turno.fechaHora, tipoCancha, deporte, localidad, turno.idCancha
+	SELECT idTurno, turno.fechaHora, tipoCancha, deporte, localidad, turno.idCancha, Filial.idFilial
 FROM turno
 JOIN Cancha ON turno.idCancha = cancha.idCancha
 JOIN TipoCancha ON cancha.idTipoCancha = TipoCancha.idTipoCancha
