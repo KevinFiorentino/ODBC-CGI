@@ -4,7 +4,7 @@ $(document).ready(function(){
 	        "processing": true,
 	        "scrollX": true,
 	        //Llamamos método del Controlador Reservas y capturamos el JSON
-		    "sAjaxSource":"http://localhost:8081/Polideportivo/Reservas/CargarDataTableCanchas",
+		    "sAjaxSource":"http://localhost/Polideportivo/Reservas/CargarDataTableCanchas",
 		    
 	        "columns": [{
 			                "class":          "details-control",
@@ -55,7 +55,7 @@ function detalleReservarCanchas(d) {
 	var window = "'width=600,height=270'";
 	return '<div>' 
 
-	    +'<a href="http://localhost:8081/Polideportivo/Reservas/Turnos?filial='+d.idFilial+'&cancha='+d.idCancha+'" target="_blank" onclick="window.open(this.href,this.target,'+window+'); return false;">Reservar Esta Cancha</a>'
+	    +'<a href="http://localhost/Polideportivo/Reservas/Turnos?filial='+d.idFilial+'&cancha='+d.idCancha+'" target="_blank" onclick="window.open(this.href,this.target,'+window+'); return false;">Reservar Esta Cancha</a>'
 
 	    +'</div>';
 }

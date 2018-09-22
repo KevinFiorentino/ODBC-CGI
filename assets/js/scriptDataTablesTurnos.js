@@ -4,7 +4,7 @@ $(document).ready(function(){
 	        "processing": true,
 	        "scrollX": true,
 	        //Llamamos método del Controlador Reservas y capturamos el JSON
-		    "sAjaxSource":"http://localhost:8081/Polideportivo/Reservas/CargarDataTableTurnos",
+		    "sAjaxSource":"http://localhost/Polideportivo/Reservas/CargarDataTableTurnos",
 		    
 	        "columns": [{
 			                "class":          "details-control",
@@ -58,7 +58,7 @@ function detalleTraerTurnos(d) {
 	var window = "'width=600,height=270'";
 	return '<div>' 
 	
-    +'<a href="http://localhost:8081/Polideportivo/Reservas/CancelarTurno?idTurno='+d.idTurno+'&fechaHora='+d.fechaHora+'">Cancelar Turno</a>'
-    + '&nbsp;&nbsp;&nbsp; <a href="http://localhost:8081/Polideportivo/Reservas/modificarTurnovista?idTurno='+d.idTurno+'&idCancha='+d.idCancha+'&filial='+d.idFilial+'" target="_blank" onclick="window.open(this.href,this.target,'+window+'); return false;">Modificar Turno</a>'
+    +'<a href="http://localhost/Polideportivo/Reservas/CancelarTurno?idTurno='+d.idTurno+'&fechaHora='+d.fechaHora+'">Cancelar Turno</a>'
+    + '&nbsp;&nbsp;&nbsp; <a href="http://localhost/Polideportivo/Reservas/modificarTurnovista?idTurno='+d.idTurno+'&idCancha='+d.idCancha+'&filial='+d.idFilial+'" target="_blank" onclick="window.open(this.href,this.target,'+window+'); return false;">Modificar Turno</a>'
 	    +'</div>';
 }

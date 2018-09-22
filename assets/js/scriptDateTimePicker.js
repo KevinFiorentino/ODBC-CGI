@@ -12,7 +12,7 @@ var filial = getParameterByName('filial');
 angular.module('app', []).controller('ctrl', function($scope, $http) {
 	
 	//Llamamos método del Controlador Reservas y capturamos el JSON 
-  $http.get("http://localhost:8081/Polideportivo/Reservas/PedirTurno?filial=" + filial).
+  $http.get("http://localhost/Polideportivo/Reservas/PedirTurno?filial=" + filial).
     then(function(response) {
 
     $scope.hr = response.data;

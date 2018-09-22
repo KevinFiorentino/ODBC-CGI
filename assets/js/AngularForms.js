@@ -16,9 +16,10 @@ app.controller('ControllerForms', function($scope, $http){
 		}
 	}
 	
+	/*
 	//Cargar Array con nombres de Usuario
 	$scope.us = [];
-	$http.get('http://localhost:8081/Polideportivo/RegistrarSocio/TraerUsuarios').  
+	$http.get('http://localhost/Polideportivo/RegistrarSocio/TraerUsuarios').  
     then(function(response) {
     	
     	$scope.usuarios = response.data;
@@ -51,5 +52,5 @@ app.controller('ControllerForms', function($scope, $http){
 			}
 		}
 	}
-	
+	*/
 });

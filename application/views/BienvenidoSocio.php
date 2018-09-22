@@ -20,9 +20,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     					
     					<br>
     					
-    					<img src="http://localhost:8081/Polideportivo/assets/images/tenis.jpg" width="340px" height="250px"/>
-    					<img src="http://localhost:8081/Polideportivo/assets/images/cancha1.jpg" width="340px" height="250px"/>
-    					<img src="http://localhost:8081/Polideportivo/assets/images/cancha2.jpg" width="340px" height="250px"/>
+    					<img src="http://localhost/Polideportivo/assets/images/tenis.jpg" width="340px" height="250px"/>
+    					<img src="http://localhost/Polideportivo/assets/images/cancha1.jpg" width="340px" height="250px"/>
+    					<img src="http://localhost/Polideportivo/assets/images/cancha2.jpg" width="340px" height="250px"/>
     
     				</div>
     			</div>
