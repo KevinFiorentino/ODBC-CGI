@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Distribuidos 2018 - Trabajo Practico ODBC - CGI">
-    <meta name="author" content="Fiorentino - Violi - Palazzo">
+    <meta name="author" content="Fiorentino - Violi">
 
     <title>Distribuidos 2018</title>
 
