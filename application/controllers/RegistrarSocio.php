@@ -19,6 +19,7 @@ class RegistrarSocio extends CI_Controller {
     public function Asociar() {
         /* Load form helper */
         $this->load->helper(array('form'));
+        $this->load->database();
         
         /* Load form validation library */
         $this->form_validation->set_rules('nombre', 'Nombre', 'required');

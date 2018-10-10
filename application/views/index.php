@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         unset( $_SESSION['errorLogin'] ); } ?> <br>
 
 	<?php if(isset( $_SESSION['RegistroOk'] )) { 
-        echo '<div class="container bg-danger">
+        echo '<div class="container bg-success">
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="alert-link-text">
