@@ -1,4 +1,4 @@
-# ODBC/CGI
+# ODBC (Open DataBase Connectivity)
 
 ## Universidad Nacional de Lanús - Licenciatura en Sistemas
 
@@ -7,4 +7,3 @@
 * PHP (Codeigniter)
 * Bootstrap
 * ODBC Connector MySQL 5.1
-* CGI (Common Gateway Interface)
