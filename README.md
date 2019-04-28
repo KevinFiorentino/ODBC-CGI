@@ -1,11 +1,10 @@
-# ODBC-CGI
-Cátedra Sistemas Distribuidos 2018
+# ODBC/CGI
 
-Ambiente:
-	IDE: Eclipse -
-	Wamp Server -
-	PHP v5.6 -
-	Framework: CodeIgniter -
-	Bootstrap -
-	ODBC Connector MySQL 5.1 -
-	
+## Universidad Nacional de Lanús - Licenciatura en Sistemas
+
+### Cátedra Sistemas Distribuidos 2018
+
+* PHP (Codeigniter)
+* Bootstrap
+* ODBC Connector MySQL 5.1
+* CGI (Common Gateway Interface)
